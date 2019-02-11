@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/ebfe/scard"
-	"github.com/taglme/string2keyboard"
+	"github.com/Eldest22/string2keyboard"
 )
 
 func errorExit(err error) {
@@ -96,11 +96,12 @@ func main() {
 			if err != nil {
 				errorExit(err)
 			}
-			uid := string(rsp[0:7])
+			uid := string(rsp[0:4])
 			uidS := fmt.Sprintf("%x", uid)
 			fmt.Printf("Tag UID is: %s\n", uidS)
 			fmt.Printf("Writting as keyboard input...")
 			string2keyboard.KeyboardWrite(uidS)
+			string2keyboard.KeyboardWrite(";")
 			fmt.Printf("Done.\n")
 
 			card.Disconnect(scard.ResetCard)
