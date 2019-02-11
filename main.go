@@ -103,6 +103,7 @@ func main() {
 			string2keyboard.KeyboardWrite(uidS)
 			string2keyboard.KeyboardWrite(";")
 			fmt.Printf("Done.\n")
+			time.Sleep(1 * time.Second)
 
 			card.Disconnect(scard.ResetCard)
 
